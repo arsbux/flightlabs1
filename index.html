@@ -1,0 +1,860 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flight Labs | From Idea to MVP in 14 Days</title>
+    <meta name="description"
+        content="Flight Labs helps non-technical founders transform startup ideas into production-ready MVPs within 14 days. Build fast, launch faster.">
+    <meta name="keywords" content="MVP development, startup, web app, mobile app, 14 days, non-technical founders">
+    <meta property="og:title" content="Flight Labs | From Idea to MVP in 14 Days">
+    <meta property="og:description"
+        content="Transform your startup idea into a production-ready MVP in just 14 days. No technical skills required.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="Public/socialshare.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="Public/socialshare.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Instrument+Serif:ital@0;1&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <!-- Animated Background -->
+    <div class="bg-gradient-light">
+        <img src="Public/gradients/blue.png" class="blob-img blob-blue" alt="" />
+        <img src="Public/gradients/orange.png" class="blob-img blob-orange" alt="" />
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <span class="logo-icon-text">FLIGHT LABS</span>
+                <span class="logo-star">✦</span>
+            </a>
+            <div class="nav-links" id="navLinks">
+                <a href="#process" class="nav-link">Process</a>
+                <a href="#benefits" class="nav-link">Benefits</a>
+                <a href="#services" class="nav-link">Services</a>
+                <a href="#pricing" class="nav-link">Pricing</a>
+            </div>
+            <a href="https://calendly.com/keithkatale1/discovery-call" target="_blank" class="btn-nav">
+                <span>Book an intro Call</span>
+            </a>
+            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="hero-container">
+            <div class="hero-badge animate-fade-in">
+                <span class="badge-dot"></span>
+                <span class="badge-text">We only take in 2 projects per month</span>
+            </div>
+
+            <h1 class="hero-title animate-fade-in-up">
+                Go from <em class="serif">Startup</em><br class="mobile-break">
+                <!-- Lightbulb Icon -->
+                <span class="inline-icon icon-light">
+                    <svg class="icon-svg" viewBox="0 0 24 24" fill="none">
+                        <path
+                            d="M12 2C8.13 2 5 5.13 5 9c0 2.38 1.19 4.47 3 5.74V17a1 1 0 001 1h6a1 1 0 001-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.87-3.13-7-7-7z"
+                            fill="url(#bulbGradient)" />
+                        <path d="M9 21a1 1 0 001 1h4a1 1 0 001-1v-1H9v1z" fill="#FCD34D" />
+                        <path d="M9 18h6v1H9z" fill="#F59E0B" />
+                        <circle cx="12" cy="9" r="2" fill="rgba(255,255,255,0.6)" />
+                        <defs>
+                            <linearGradient id="bulbGradient" x1="12" y1="2" x2="12" y2="17"
+                                gradientUnits="userSpaceOnUse">
+                                <stop stop-color="#FDE68A" />
+                                <stop offset="1" stop-color="#F59E0B" />
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                </span>
+                <em class="serif">Idea</em>
+                <!-- Tablet Break: hidden on mobile/desktop, visible on tablet? user said "on other screen sizes it should be two lines". "Mobile: 3 lines". "Other: 2 lines". so Desktop AND Tablet = 2 lines. -->
+                <br class="tablet-break">
+                <em class="serif">to</em>
+                <!-- Chart Icon -->
+                <span class="inline-icon icon-dark">
+                    <svg class="icon-svg" viewBox="0 0 24 24" fill="none">
+                        <path d="M3 17L9 11L13 15L21 7" stroke="url(#chartGradient)" stroke-width="2.5"
+                            stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M17 7H21V11" stroke="url(#chartGradient)" stroke-width="2.5" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                        <defs>
+                            <linearGradient id="chartGradient" x1="3" y1="7" x2="21" y2="17"
+                                gradientUnits="userSpaceOnUse">
+                                <stop stop-color="#60A5FA" />
+                                <stop offset="1" stop-color="#3B82F6" />
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                </span><br class="mobile-break">
+                <em class="serif">Product</em> In 14days.
+            </h1>
+
+            <p class="hero-subtitle animate-fade-in-up delay-1">
+                If you want speed and efficiency, we'll handle all the development<br>
+                and technical work for you — ready for launch within 14 days.<br>
+                <span class="subtitle-highlight">2 products launched last month</span>
+            </p>
+
+            <div class="hero-ctas animate-fade-in-up delay-2">
+                <a href="https://calendly.com/keithkatale1/discovery-call" target="_blank" class="btn btn-dark">
+                    Book an Intro Call
+                </a>
+                <a href="#pricing" class="btn btn-outline">
+                    View Plans
+                </a>
+            </div>
+
+
+            <!-- Process Section -->
+            <section class="section process-section" id="process">
+                <div class="container">
+                    <div class="section-header">
+                        <h2 class="section-title">How it works</h2>
+                        <p class="section-subtitle">Go from 0 to 1 in Three Simple Steps</p>
+                    </div>
+                    <div class="process-grid">
+                        <!-- Card 1 -->
+                        <div class="process-card">
+                            <div class="process-icon icon-light-bg">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                    <path
+                                        d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                                </svg>
+                            </div>
+                            <h3 class="process-title">Vision & Launch Plan</h3>
+                            <p class="process-desc">Shape your core idea using first principles and prioritization. We
+                                define
+                                what's essential and create a clear roadmap.</p>
+                            <ul class="process-list">
+                                <li>Core feature scoping</li>
+                                <li>User flow mapping</li>
+                                <li>Tech stack selection</li>
+                            </ul>
+                            <span class="process-timeline">Day 1-2</span>
+                        </div>
+
+                        <!-- Card 2 -->
+                        <div class="process-card">
+                            <div class="process-icon icon-dark-bg">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                    <path d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+                                </svg>
+                            </div>
+                            <h3 class="process-title">MVP in 2 Weeks</h3>
+                            <p class="process-desc">We rapidly build your MVP with speed, focus, and function.
+                                AI-accelerated
+                                development for maximum efficiency.</p>
+                            <ul class="process-list">
+                                <li>Core feature build</li>
+                                <li>Auth & user management</li>
+                                <li>Payment integration</li>
+                            </ul>
+                            <span class="process-timeline">Day 3-12</span>
+                        </div>
+
+                        <!-- Card 3 -->
+                        <div class="process-card">
+                            <div class="process-icon icon-light-bg">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                    <path d="M13 10V3L4 14h7v7l9-11h-7z" />
+                                </svg>
+                            </div>
+                            <h3 class="process-title">Launch & Iterate</h3>
+                            <p class="process-desc">Go live, gather real insights, and improve using actual feedback. We
+                                prepare
+                                everything for a successful launch.</p>
+                            <ul class="process-list">
+                                <li>Production deployment</li>
+                                <li>Demo video & assets</li>
+                                <li>30-day support included</li>
+                            </ul>
+                            <span class="process-timeline">Day 13-14</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Benefits / Comparison Section -->
+            <section class="section benefits-section" id="benefits">
+                <div class="container">
+                    <div class="section-header">
+                        <h2 class="section-title">Why choose <em class="serif">Flight Labs?</em></h2>
+                        <p class="section-subtitle">See why founders choose our AI-first approach over traditional
+                            agencies.</p>
+                    </div>
+
+                    <div class="comparison-cards">
+                        <!-- Flight Labs Card -->
+                        <div class="comparison-card card-featured">
+                            <div class="card-header">
+                                <span class="card-badge">Recommended</span>
+                                <h3 class="card-title">Flight Labs</h3>
+                                <p class="card-desc">AI-accelerated development for modern founders</p>
+                            </div>
+                            <ul class="comparison-list">
+                                <li>
+                                    <span class="check-icon">✓</span>
+                                    <div>
+                                        <strong>Launch in 14 days</strong>
+                                        <span>From idea to production-ready MVP</span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <span class="check-icon">✓</span>
+                                    <div>
+                                        <strong>Fixed, transparent pricing</strong>
+                                        <span>Know your costs upfront, no surprises</span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <span class="check-icon">✓</span>
+                                    <div>
+                                        <strong>Lean team + AI agents</strong>
+                                        <span>Efficient, focused, and fast execution</span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <span class="check-icon">✓</span>
+                                    <div>
+                                        <strong>Modern tech stack</strong>
+                                        <span>Built with the latest, scalable technologies</span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <span class="check-icon">✓</span>
+                                    <div>
+                                        <strong>30-day free support</strong>
+                                        <span>We've got your back post-launch</span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <span class="check-icon">✓</span>
+                                    <div>
+                                        <strong>Built to pivot fast</strong>
+                                        <span>Flexible architecture for rapid iteration</span>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- Traditional Agency Card -->
+                        <div class="comparison-card card-muted">
+                            <div class="card-header">
+                                <h3 class="card-title">Traditional Agency</h3>
+                                <p class="card-desc">The old way of building products</p>
+                            </div>
+                            <ul class="comparison-list">
+                                <li>
+                                    <span class="cross-icon">✕</span>
+                                    <div>
+                                        <strong>6-12 months to build</strong>
+                                        <span>Endless planning and slow progress</span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <span class="cross-icon">✕</span>
+                                    <div>
+                                        <strong>$60K+ before validation</strong>
+                                        <span>Massive upfront investment with no guarantee</span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <span class="cross-icon">✕</span>
+                                    <div>
+                                        <strong>Bloated hourly teams</strong>
+                                        <span>Inefficient, expensive, and slow</span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <span class="cross-icon">✕</span>
+                                    <div>
+                                        <strong>Outdated tech stack</strong>
+                                        <span>Legacy systems that are hard to maintain</span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <span class="cross-icon">✕</span>
+                                    <div>
+                                        <strong>Extra fees after delivery</strong>
+                                        <span>Hidden costs for support and changes</span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <span class="cross-icon">✕</span>
+                                    <div>
+                                        <strong>Hard to change direction</strong>
+                                        <span>Rigid architecture locks you in</span>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Services Section -->
+            <section class="section services-section" id="services">
+                <div class="container">
+                    <div class="section-header">
+                        <h2 class="section-title">What we <em class="serif">build</em></h2>
+                        <p class="section-subtitle">From MVPs to production-ready applications — everything you need to
+                            launch.
+                        </p>
+                    </div>
+
+                    <div class="services-bento">
+                        <!-- Featured Service -->
+                        <div class="service-item featured">
+                            <div class="service-icon icon-dark-bg">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                    <path d="M13 10V3L4 14h7v7l9-11h-7z" />
+                                </svg>
+                            </div>
+                            <div class="service-content">
+                                <span class="service-badge">Most Popular</span>
+                                <h3>14-Day MVP Sprint</h3>
+                                <p>Transform your idea into a launch-ready product in just two weeks. Full-stack web app
+                                    with
+                                    auth, payments, and admin dashboard.</p>
+                            </div>
+                        </div>
+
+                        <!-- Mobile Apps -->
+                        <div class="service-item">
+                            <div class="service-icon icon-light-bg">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                    <path
+                                        d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
+                                </svg>
+                            </div>
+                            <div class="service-content">
+                                <h3>Mobile Apps</h3>
+                                <p>Native iOS & Android apps with React Native. Beautiful, performant, app-store ready.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Web Platforms -->
+                        <div class="service-item">
+                            <div class="service-icon icon-light-bg">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                    <path
+                                        d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                                </svg>
+                            </div>
+                            <div class="service-content">
+                                <h3>Web Platforms</h3>
+                                <p>Complex SaaS, dashboards, and enterprise tools built for scale and performance.</p>
+                            </div>
+                        </div>
+
+                        <!-- AI Integration -->
+                        <div class="service-item">
+                            <div class="service-icon icon-light-bg">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                    <path
+                                        d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                                </svg>
+                            </div>
+                            <div class="service-content">
+                                <h3>AI Integration</h3>
+                                <p>Add GPT, Claude, or custom AI models. Chatbots, automation, and intelligent features.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Growth Support -->
+                        <div class="service-item">
+                            <div class="service-icon icon-light-bg">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                    <path d="M3 17L9 11L13 15L21 7" />
+                                    <path d="M17 7H21V11" />
+                                </svg>
+                            </div>
+                            <div class="service-content">
+                                <h3>Growth Support</h3>
+                                <p>Analytics, SEO, and growth experiments to get your first 1000 users fast.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Portfolio / Work Section -->
+            <section class="section work-section" id="work">
+                <div class="container">
+                    <div class="section-header">
+                        <h2 class="section-title">See What We've Built <br class="hidden-mobile" /> for <em
+                                class="serif">Others</em></h2>
+                        <p class="section-subtitle">Our top projects, delivered from validated concept to market-ready
+                            MVP in
+                            just weeks.</p>
+                    </div>
+                    <div class="work-grid">
+                        <!-- Zeplit -->
+                        <div class="work-card">
+                            <div class="work-image-wrapper">
+                                <img src="Public/zeplit.png" alt="Zeplit Interface" class="work-image">
+                            </div>
+                            <div class="work-content">
+                                <h3 class="work-title">Zeplit</h3>
+                                <p class="work-desc">Zeplit is an AI-powered study assistant that helps students
+                                    understand
+                                    concepts, stay organized, score higher and faster.</p>
+                                <div class="work-tags">
+                                    <span class="work-pill">Study Tool</span>
+                                    <span class="work-pill">AI Tutoring</span>
+                                    <span class="work-pill">B2C</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Daily Faith -->
+                        <div class="work-card">
+                            <div class="work-image-wrapper">
+                                <img src="Public/dailyfaith.png" alt="Daily Faith App" class="work-image">
+                            </div>
+                            <div class="work-content">
+                                <h3 class="work-title">Daily Faith & Prayer Lock</h3>
+                                <p class="work-desc">Spiritual Habit Apps that keep users connected through daily
+                                    prayer, Bible
+                                    verses, and mindful screen time control.</p>
+                                <div class="work-tags">
+                                    <span class="work-pill">Productivity</span>
+                                    <span class="work-pill">App</span>
+                                    <span class="work-pill">B2C</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Loop -->
+                        <div class="work-card">
+                            <div class="work-image-wrapper">
+                                <img src="Public/loop.png" alt="Loop App" class="work-image">
+                            </div>
+                            <div class="work-content">
+                                <h3 class="work-title">Loop – Voice Journal</h3>
+                                <p class="work-desc">A thoughtful voice journaling app that helps users reflect, record,
+                                    and
+                                    capture meaningful moments in their daily lives.</p>
+                                <div class="work-tags">
+                                    <span class="work-pill">Lifestyle</span>
+                                    <span class="work-pill">App</span>
+                                    <span class="work-pill">B2C</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Testimonials Section -->
+            <section class="section testimonials-section">
+                <div class="container">
+                    <div class="section-header">
+                        <h2 class="section-title">Our Client's <em class="serif">Thoughts</em></h2>
+                        <p class="section-subtitle">Everything you need to launch and scale online</p>
+                    </div>
+
+                    <div class="testimonials-marquee">
+                        <div class="testimonials-track">
+                            <!-- Original Set -->
+                            <!-- Alex (Zeplit) -->
+                            <div class="testimonial-card">
+                                <div class="testimonial-header">
+                                    <img src="Public/people/VjsU7o1YGCwqS9huL6A3nONNDM.png" alt="Alex Chen"
+                                        class="author-avatar-img">
+                                    <div class="author-info">
+                                        <span class="author-name">Alex Chen</span>
+                                        <span class="author-title">Founder, Zeplit</span>
+                                    </div>
+                                </div>
+                                <div class="testimonial-stars">★★★★★</div>
+                                <p class="testimonial-text">"Flight Labs helped us build Zeplit's core AI tutoring
+                                    engine in
+                                    record time. The students love the intuitive interface and it scales perfectly."</p>
+                            </div>
+
+                            <!-- Sarah (Daily Faith) -->
+                            <div class="testimonial-card">
+                                <div class="testimonial-header">
+                                    <img src="Public/people/QAOhsZUyiilbpNq3Jp3OF0p55Wo.png" alt="Sarah Miller"
+                                        class="author-avatar-img">
+                                    <div class="author-info">
+                                        <span class="author-name">Sarah Miller</span>
+                                        <span class="author-title">Founder, Daily Faith</span>
+                                    </div>
+                                </div>
+                                <div class="testimonial-stars">★★★★★</div>
+                                <p class="testimonial-text">"We needed a spiritual app that felt modern yet reverent.
+                                    The team
+                                    nailed the aesthetic and the daily prayer lock feature works perfectly."</p>
+                            </div>
+
+                            <!-- David (Loop) -->
+                            <div class="testimonial-card">
+                                <div class="testimonial-header">
+                                    <img src="Public/people/Vy5uN8ZutPKnGzqUrqMqdp4Wmuc.png" alt="David Park"
+                                        class="author-avatar-img">
+                                    <div class="author-info">
+                                        <span class="author-name">David Park</span>
+                                        <span class="author-title">Creator, Loop</span>
+                                    </div>
+                                </div>
+                                <div class="testimonial-stars">★★★★★</div>
+                                <p class="testimonial-text">"Voice journaling is intimate, and Flight Labs understood
+                                    that. The
+                                    app is fast, beautiful, and exactly what our users needed."</p>
+                            </div>
+
+                            <!-- Duplicated Set for Infinite Scroll -->
+                            <!-- Alex (Zeplit) -->
+                            <div class="testimonial-card">
+                                <div class="testimonial-header">
+                                    <img src="Public/people/VjsU7o1YGCwqS9huL6A3nONNDM.png" alt="Alex Chen"
+                                        class="author-avatar-img">
+                                    <div class="author-info">
+                                        <span class="author-name">Alex Chen</span>
+                                        <span class="author-title">Founder, Zeplit</span>
+                                    </div>
+                                </div>
+                                <div class="testimonial-stars">★★★★★</div>
+                                <p class="testimonial-text">"Flight Labs helped us build Zeplit's core AI tutoring
+                                    engine in
+                                    record time. The students love the intuitive interface and it scales perfectly."</p>
+                            </div>
+
+                            <!-- Sarah (Daily Faith) -->
+                            <div class="testimonial-card">
+                                <div class="testimonial-header">
+                                    <img src="Public/people/QAOhsZUyiilbpNq3Jp3OF0p55Wo.png" alt="Sarah Miller"
+                                        class="author-avatar-img">
+                                    <div class="author-info">
+                                        <span class="author-name">Sarah Miller</span>
+                                        <span class="author-title">Founder, Daily Faith</span>
+                                    </div>
+                                </div>
+                                <div class="testimonial-stars">★★★★★</div>
+                                <p class="testimonial-text">"We needed a spiritual app that felt modern yet reverent.
+                                    The team
+                                    nailed the aesthetic and the daily prayer lock feature works perfectly."</p>
+                            </div>
+
+                            <!-- David (Loop) -->
+                            <div class="testimonial-card">
+                                <div class="testimonial-header">
+                                    <img src="Public/people/Vy5uN8ZutPKnGzqUrqMqdp4Wmuc.png" alt="David Park"
+                                        class="author-avatar-img">
+                                    <div class="author-info">
+                                        <span class="author-name">David Park</span>
+                                        <span class="author-title">Creator, Loop</span>
+                                    </div>
+                                </div>
+                                <div class="testimonial-stars">★★★★★</div>
+                                <p class="testimonial-text">"Voice journaling is intimate, and Flight Labs understood
+                                    that. The
+                                    app is fast, beautiful, and exactly what our users needed."</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- What You Get Section -->
+            <section class="section deliverables-section">
+                <div class="container">
+                    <div class="section-header">
+                        <h2 class="section-title">The full <em class="serif">package</em></h2>
+                        <p class="section-subtitle">Everything you need to launch, demo, and scale your MVP.</p>
+                    </div>
+                    <div class="deliverables-grid">
+                        <div class="deliverable-item">
+                            <h4>Hosted Web App</h4>
+                            <p>Fully deployed and accessible online</p>
+                        </div>
+                        <div class="deliverable-item">
+                            <h4>Auth System</h4>
+                            <p>Secure user registration and login</p>
+                        </div>
+                        <div class="deliverable-item">
+                            <h4>5 Core Flows</h4>
+                            <p>Essential user journeys implemented</p>
+                        </div>
+                        <div class="deliverable-item">
+                            <h4>Admin Dashboard</h4>
+                            <p>Management interface for your team</p>
+                        </div>
+                        <div class="deliverable-item">
+                            <h4>Stripe Payments</h4>
+                            <p>Integrated payment processing</p>
+                        </div>
+                        <div class="deliverable-item">
+                            <h4>Analytics</h4>
+                            <p>User tracking and behavior insights</p>
+                        </div>
+                        <div class="deliverable-item">
+                            <h4>Demo Video</h4>
+                            <p>Professional product demonstration</p>
+                        </div>
+                        <div class="deliverable-item">
+                            <h4>30-Day Warranty</h4>
+                            <p>Post-launch bug fixes included</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Pricing Section -->
+            <section class="section pricing-section" id="pricing">
+                <div class="container">
+                    <div class="section-header">
+                        <h2 class="section-title">Simple <em class="serif">pricing</em></h2>
+                        <p class="section-subtitle">Straightforward plans. All include our 14-day delivery guarantee.
+                        </p>
+                    </div>
+                    <div class="pricing-grid">
+                        <div class="pricing-card">
+                            <div class="pricing-header">
+                                <h3 class="pricing-name">MVP Launch</h3>
+                                <p class="pricing-desc">Best for founders validating an idea</p>
+                                <div class="pricing-price">
+                                    <span class="currency">$</span>
+                                    <span class="amount">4,500</span>
+                                </div>
+                            </div>
+                            <ul class="pricing-features">
+                                <li><span class="check-icon">✓</span> 14-day delivery guarantee</li>
+                                <li><span class="check-icon">✓</span> Kickoff & discovery session</li>
+                                <li><span class="check-icon">✓</span> Product spec + wireframe</li>
+                                <li><span class="check-icon">✓</span> Core flow implementation</li>
+                                <li><span class="check-icon">✓</span> Production deployment</li>
+                                <li><span class="check-icon">✓</span> 7 days post-launch support</li>
+                            </ul>
+                            <a href="#contact" class="pricing-cta">Get Started</a>
+                        </div>
+                        <div class="pricing-card featured">
+                            <div class="pricing-badge">Best Deal</div>
+                            <div class="pricing-header">
+                                <h3 class="pricing-name">Growth Sprint</h3>
+                                <p class="pricing-desc">Includes integrations & analytics</p>
+                                <div class="pricing-price">
+                                    <span class="currency">$</span>
+                                    <span class="amount">7,500+</span>
+                                </div>
+                            </div>
+                            <ul class="pricing-features">
+                                <li><span class="check-icon">✓</span> Everything in Starter</li>
+                                <li><span class="check-icon">✓</span> 2 additional features</li>
+                                <li><span class="check-icon">✓</span> Stripe & Zapier integration</li>
+                                <li><span class="check-icon">✓</span> Performance & security checks</li>
+                                <li><span class="check-icon">✓</span> Email onboarding flow</li>
+                                <li><span class="check-icon">✓</span> 14 days post-launch support</li>
+                            </ul>
+                            <a href="#contact" class="pricing-cta featured">Get Started</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- FAQ Section (Rebuilt) -->
+            <section class="section faq-section" id="faq">
+                <div class="container">
+                    <div class="faq-layout">
+                        <div class="faq-header-col">
+                            <h2 class="faq-title">Have Questions?</h2>
+                            <p class="faq-subtitle">Everything you need to know before we build your winning website.
+                            </p>
+                        </div>
+                        <div class="faq-list-col" id="faq-list">
+                            <!-- Item 1 -->
+                            <div class="faq-item">
+                                <button class="faq-trigger" onclick="toggleFaq(this)">
+                                    <span class="faq-icon">+</span>
+                                    <span class="faq-label">What happens if we need changes after launch?</span>
+                                </button>
+                                <div class="faq-content">
+                                    <div class="faq-inner">
+                                        <p>We offer flexible retainer plans for ongoing development. Or you can hire
+                                            your own
+                                            team — we'll ensure smooth handoff with documentation.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Item 2 -->
+                            <div class="faq-item">
+                                <button class="faq-trigger" onclick="toggleFaq(this)">
+                                    <span class="faq-icon">+</span>
+                                    <span class="faq-label">Do we own all the code?</span>
+                                </button>
+                                <div class="faq-content">
+                                    <div class="faq-inner">
+                                        <p>Yes, 100%. We transfer all code and assets to your repository upon project
+                                            completion. It's your product, your IP.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Item 3 -->
+                            <div class="faq-item">
+                                <button class="faq-trigger" onclick="toggleFaq(this)">
+                                    <span class="faq-icon">+</span>
+                                    <span class="faq-label">What tech stack do you use and why?</span>
+                                </button>
+                                <div class="faq-content">
+                                    <div class="faq-inner">
+                                        <p>We use modern, scalable tech like React, Next.js, and Node.js to ensure your
+                                            MVP is
+                                            fast, secure, and ready to scale.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Item 4 -->
+                            <div class="faq-item">
+                                <button class="faq-trigger" onclick="toggleFaq(this)">
+                                    <span class="faq-icon">+</span>
+                                    <span class="faq-label">How do you handle data privacy and security?</span>
+                                </button>
+                                <div class="faq-content">
+                                    <div class="faq-inner">
+                                        <p>Your data is safe with us. We follow industry-standard security practices
+                                            such as
+                                            encrypted storage, secure user authentication, and periodic security reviews
+                                            to
+                                            ensure your MVP is protected from day one.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Item 5 -->
+                            <div class="faq-item">
+                                <button class="faq-trigger" onclick="toggleFaq(this)">
+                                    <span class="faq-icon">+</span>
+                                    <span class="faq-label">What if my MVP needs to integrate with other tools?</span>
+                                </button>
+                                <div class="faq-content">
+                                    <div class="faq-inner">
+                                        <p>No problem. We specialize in integrating with leading SaaS tools and APIs. If
+                                            you
+                                            have specific platforms in mind, we'll plan for them during the discovery
+                                            phase to
+                                            guarantee seamless integration.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Item 6 -->
+                            <div class="faq-item">
+                                <button class="faq-trigger" onclick="toggleFaq(this)">
+                                    <span class="faq-icon">+</span>
+                                    <span class="faq-label">What's not included in the package?</span>
+                                </button>
+                                <div class="faq-content">
+                                    <div class="faq-inner">
+                                        <p>Our base package covers the full MVP build, but ongoing maintenance, advanced
+                                            customizations, and marketing services are not included. If needed, we can
+                                            discuss
+                                            and upgrade to a custom growth plan accordingly.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <script>
+                function toggleFaq(button) {
+                    const item = button.parentElement;
+                    const content = item.querySelector('.faq-content');
+                    const isActive = item.classList.contains('active');
+
+                    // Close all others
+                    document.querySelectorAll('.faq-item').forEach(other => {
+                        other.classList.remove('active');
+                        other.querySelector('.faq-content').style.maxHeight = null;
+                    });
+
+                    // Toggle current
+                    if (!isActive) {
+                        item.classList.add('active');
+                        content.style.maxHeight = content.scrollHeight + "px";
+                    } else {
+                        item.classList.remove('active');
+                        content.style.maxHeight = null;
+                    }
+                }
+
+                // Mobile Menu Toggle
+                const menuBtn = document.getElementById('mobileMenuBtn');
+                const navLinks = document.getElementById('navLinks');
+
+                if (menuBtn) {
+                    menuBtn.addEventListener('click', () => {
+                        navLinks.classList.toggle('active');
+                        menuBtn.classList.toggle('active');
+                    });
+
+                    // Close menu when a link is clicked
+                    document.querySelectorAll('.nav-link').forEach(link => {
+                        link.addEventListener('click', () => {
+                            navLinks.classList.remove('active');
+                            menuBtn.classList.remove('active');
+                        });
+                    });
+                }
+            </script>
+
+            <!-- Footer -->
+            <!-- Footer -->
+            <footer class="main-footer" id="contact">
+                <div class="footer-card">
+                    <div class="footer-grid">
+                        <!-- Left Column: CTA -->
+                        <div class="footer-left">
+                            <h2 class="footer-heading">Let's Build Greatness<br>Together.</h2>
+                            <p class="footer-subtext">Helping Founders & CEOs launch, grow,<br>and scale with software &
+                                ai solutions.</p>
+                            <a href="https://calendly.com/keithkatale1/discovery-call" target="_blank"
+                                class="btn btn-dark footer-btn">Book an Intro Call</a>
+                        </div>
+
+                        <!-- Right Column: Contact & Brand -->
+                        <div class="footer-right">
+                            <div class="contact-block">
+                                <span class="contact-label">Contact Us:</span>
+                                <a href="mailto:keith@flightlabs.agency"
+                                    class="contact-email">keith@flightlabs.agency</a>
+                            </div>
+
+                            <div class="brand-block">
+                                <div class="giant-brand-wrapper">
+                                    <h1 class="giant-brand">FLIGHT LABS</h1>
+                                    <span class="giant-star">✦</span>
+                                </div>
+                                <p class="copyright">© 2025 FLIGHT LABS. All Rights Reserved.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+</body>
+
+</html>
