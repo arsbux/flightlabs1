@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flight Labs Blog Admin</title>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;800&display=swap" rel="stylesheet">
+    <!-- TinyMCE from Cloudflare CDN (No API Key needed for basic usage) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tinymce/6.8.2/tinymce.min.js" referrerpolicy="origin"></script>
+    <style>
+        body {
+            font-family: 'Manrope', sans-serif;
+            padding: 40px;
+            background: #f9f9f9;
+            color: #333;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+        }
+
+        h1 {
+            margin-top: 0;
+            margin-bottom: 8px;
+        }
+
+        p.subtitle {
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        .form-group {
+            margin-bottom: 24px;
+        }
+
+        label {
+            display: block;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: #111;
+        }
+
+        input[type="text"],
+        textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-family: inherit;
+            font-size: 16px;
+            box-sizing: border-box;
+            transition: border-color 0.2s;
+        }
+
+        input[type="text"]:focus,
+        textarea:focus {
+            border-color: #000;
+            outline: none;
+        }
+
+        /* File Upload Styling */
+        .file-upload-wrapper {
+            border: 2px dashed #ddd;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            cursor: pointer;
+            transition: background 0.2s;
+            position: relative;
+        }
+
+        .file-upload-wrapper:hover {
+            background: #fafafa;
+            border-color: #bbb;
+        }
+
+        .file-upload-wrapper input[type="file"] {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            cursor: pointer;
+        }
+
+        .file-preview {
+            max-height: 200px;
+            margin-top: 10px;
+            display: none;
+            border-radius: 4px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        button.btn-primary {
+            padding: 14px 28px;
+            background: #000;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 700;
+            transition: transform 0.1s;
+        }
+
+        button.btn-primary:hover {
+            background: #333;
+            transform: translateY(-1px);
+        }
+
+        button:disabled {
+            opacity: 0.7;
+            cursor: not-allowed;
+        }
+
+        .post-list {
+            margin-top: 60px;
+            border-top: 2px solid #eee;
+            padding-top: 40px;
+        }
+
+        .post-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .post-info h3 {
+            margin: 0 0 4px;
+            font-size: 18px;
+        }
+
+        .post-info small {
+            color: #888;
+        }
+
+        .btn-delete {
+            background: white;
+            border: 1px solid #ff4444;
+            color: #ff4444;
+            font-size: 14px;
+            padding: 8px 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        .btn-delete:hover {
+            background: #fff0f0;
+        }
+
+        .success-msg {
+            background: #d4edda;
+            color: #155724;
+            padding: 16px;
+            margin-bottom: 24px;
+            border-radius: 8px;
+            display: none;
+            font-weight: 500;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Blog Admin</h1>
+        <p class="subtitle">Manage posts for Flight Labs Ideas.</p>
+
+        <div id="success" class="success-msg">✅ Post published successfully!</div>
+
+        <form id="postForm">
+            <div class="form-group">
+                <label>Title</label>
+                <input type="text" id="title" placeholder="Enter an engaging title..." required>
+            </div>
+
+            <div class="form-group">
+                <label>Featured Image</label>
+                <!-- File Upload UI -->
+                <div class="file-upload-wrapper" id="dropZone">
+                    <p id="uploadText">Drag & drop an image here, or click to select</p>
+                    <input type="file" id="imageFile" accept="image/*">
+                    <img id="imagePreview" class="file-preview">
+                </div>
+                <!-- Fallback URL input (hidden by default unless needed, or we keep it for flexibility) -->
+                <input type="text" id="imageUrl" placeholder="Or paste an image URL..."
+                    style="margin-top: 10px; display: none;">
+            </div>
+
+            <div class="form-group">
+                <label>Excerpt (Short summary)</label>
+                <textarea id="excerpt" style="height: 80px;" placeholder="A brief hook for the card preview..."
+                    required></textarea>
+            </div>
+
+            <div class="form-group">
+                <label>Body Content</label>
+                <!-- Only ID is needed for TinyMCE -->
+                <textarea id="body"></textarea>
+            </div>
+
+            <div style="display: flex; align-items: center; gap: 20px;">
+                <button type="submit" class="btn-primary" id="publishBtn">Publish Post</button>
+                <a href="/blog" target="_blank" style="color: #666; text-decoration: none; font-weight: 600;">View Live
+                    Blog ↗</a>
+            </div>
+        </form>
+
+        <div class="post-list">
+            <h2>Existing Posts</h2>
+            <div id="postsList">
+                <p style="color: #999;">Loading posts...</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../supabase-config.js"></script>
+    <script>
+        // --- 1. Initialize TinyMCE ---
+        tinymce.init({
+            selector: '#body',
+            height: 500,
+            plugins: 'image link lists table code preview help wordcount',
+            toolbar: 'undo redo | blocks | bold italic backcolor | ' +
+                     'alignleft aligncenter alignright alignjustify | ' +
+                     'bullist numlist outdent indent | link image table | removeformat | help',
+            branding: false,
+            promotion: false,
+            // Custom Image Upload Handler for Supabase
+            images_upload_handler: async (blobInfo, progress) => {
+                try {
+                    const file = blobInfo.blob();
+                    const fileName = `content/${Date.now()}-${file.name}`;
+                    return await uploadToSupabase(file, fileName);
+                } catch (error) {
+                    console.error('Image upload failed:', error);
+                    throw new Error('Image upload failed: ' + error.message);
+                }
+            }
+        });
+
+        // --- 2. UPLOAD HELPER FUNCTION ---
+        async function uploadToSupabase(file, path) {
+            // Ensure bucket exists or use 'images'
+            const BUCKET_NAME = 'images'; 
+            
+            const { data, error } = await window.supabaseClient.storage
+                .from(BUCKET_NAME)
+                .upload(path, file, {
+                    cacheControl: '3600',
+                    upsert: false
+                });
+
+            if (error) throw error;
+
+            // Get Public URL
+            const { data: { publicUrl } } = window.supabaseClient.storage
+                .from(BUCKET_NAME)
+                .getPublicUrl(path);
+
+            return publicUrl;
+        }
+
+        // --- 3. Main App Logic ---
+        document.addEventListener('DOMContentLoaded', () => {
+            loadPosts();
+
+            // Preview Featured Image on Select
+            const fileInput = document.getElementById('imageFile');
+            const preview = document.getElementById('imagePreview');
+            const uploadText = document.getElementById('uploadText');
+
+            fileInput.addEventListener('change', (e) => {
+                const file = e.target.files[0];
+                if (file) {
+                    const reader = new FileReader();
+                    reader.onload = (e) => {
+                        preview.src = e.target.result;
+                        preview.style.display = 'block';
+                        uploadText.style.display = 'none';
+                    };
+                    reader.readAsDataURL(file);
+                }
+            });
+
+            // HANDLE SUBMIT
+            document.getElementById('postForm').addEventListener('submit', async (e) => {
+                e.preventDefault();
+                const btn = document.getElementById('publishBtn');
+                btn.disabled = true;
+                btn.innerText = 'Publishing...';
+
+                try {
+                    const title = document.getElementById('title').value;
+                    const excerpt = document.getElementById('excerpt').value;
+                    // Get Content from TinyMCE
+                    const body = tinymce.get('body').getContent(); 
+
+                    // Handle Featured Image Upload
+                    let final_image_url = document.getElementById('imageUrl').value || null; // Fallback
+                    const featuredFile = fileInput.files[0];
+
+                    if (featuredFile) {
+                        const path = `featured/${Date.now()}-${featuredFile.name}`;
+                        final_image_url = await uploadToSupabase(featuredFile, path);
+                    }
+
+                    // Insert into DB
+                    const { data, error } = await window.supabaseClient
+                        .from('posts')
+                        .insert([
+                            { 
+                                title, 
+                                image_url: final_image_url, 
+                                excerpt, 
+                                body 
+                            }
+                        ]);
+
+                    if (error) throw error;
+
+                    // Success UI
+                    const success = document.getElementById('success');
+                    success.style.display = 'block';
+                    setTimeout(() => success.style.display = 'none', 3000);
+                    
+                    e.target.reset();
+                    preview.style.display = 'none';
+                    uploadText.style.display = 'block';
+                    tinymce.get('body').setContent(''); // Reset editor
+
+                } catch (err) {
+                    console.error("Error creating post:", err);
+                    alert("Failed to publish: " + (err.message || err.error_description || "Unknown error"));
+                } finally {
+                    btn.disabled = false;
+                    btn.innerText = 'Publish Post';
+                    loadPosts();
+                }
+            });
+        });
+
+        // Load Posts List (same as before)
+        async function loadPosts() {
+            const list = document.getElementById('postsList');
+            try {
+                const { data: posts, error } = await window.supabaseClient
+                    .from('posts')
+                    .select('id, title, created_at')
+                    .order('created_at', { ascending: false });
+
+                if (error) throw error;
+
+                if (!posts || posts.length === 0) {
+                    list.innerHTML = '<p>No posts yet.</p>';
+                } else {
+                    list.innerHTML = posts.map(post => `
+                        <div class="post-item">
+                            <div class="post-info">
+                                <h3>${post.title}</h3>
+                                <small>${new Date(post.created_at).toLocaleDateString()}</small>
+                            </div>
+                            <button class="btn-delete" onclick="deletePost('${post.id}')">Delete</button>
+                        </div>
+                    `).join('');
+                }
+            } catch (err) {
+                console.error("Error loading posts:", err);
+                list.innerHTML = '<p>Error connecting to Supabase.</p>';
+            }
+        }
+
+        async function deletePost(id) {
+            if(confirm('Delete this post permanently?')) {
+                try {
+                    const { error } = await window.supabaseClient
+                        .from('posts')
+                        .delete()
+                        .eq('id', id);
+
+                    if (error) throw error;
+                    loadPosts();
+                } catch (err) {
+                    alert("Failed to delete.");
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

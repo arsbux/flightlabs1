@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flight Labs Ideas | Insights on MVP Development</title>
+    <meta name="description"
+        content="Insights, guides, and thoughts on building startups, MVPs, and software products fast.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Instrument+Serif:ital@0;1&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        /* Blog Specific Styles */
+        .blog-hero {
+            padding: 120px 20px 60px;
+            text-align: center;
+        }
+
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            gap: 32px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px 100px;
+        }
+
+        .blog-card {
+            background: white;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: transform 0.2s, box-shadow 0.2s;
+            cursor: pointer;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .blog-thumb {
+            width: 100%;
+            height: 200px;
+            background: #f5f5f5;
+            /* Placeholder */
+            object-fit: cover;
+        }
+
+        .blog-content {
+            padding: 24px;
+        }
+
+        .blog-date {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .blog-title {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            line-height: 1.4;
+        }
+
+        .blog-excerpt {
+            font-size: 16px;
+            color: #555;
+            line-height: 1.6;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Background -->
+    <div class="bg-gradient-light">
+        <img src="../Public/gradients/blue.png" class="blob-img blob-blue" alt="" />
+        <img src="../Public/gradients/orange.png" class="blob-img blob-orange" alt="" />
+    </div>
+
+    <!-- Nav -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="/" class="logo">
+                <span class="logo-icon-text">FLIGHT LABS</span>
+                <span class="logo-star">✦</span>
+            </a>
+            <div class="nav-links">
+                <a href="/#process" class="nav-link">Process</a>
+                <a href="/#benefits" class="nav-link">Benefits</a>
+                <a href="/#services" class="nav-link">Services</a>
+                <a href="/#pricing" class="nav-link">Pricing</a>
+                <a href="/blog" class="nav-link active">Ideas</a>
+            </div>
+            <a href="https://calendly.com/keithkatale1/discovery-call" target="_blank" class="btn-nav">
+                <span>Book an intro Call</span>
+            </a>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <header class="blog-hero">
+        <h1 class="hero-title">Flight Labs <em class="serif">Ideas</em></h1>
+        <p class="section-subtitle">Insights on building products at speed.</p>
+    </header>
+
+    <!-- Blog Feed -->
+    <section class="container">
+        <div id="blog-grid" class="blog-grid">
+            <!-- Posts will be injected here -->
+        </div>
+    </section>
+
+    <!-- Footer Script -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="supabase-config.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', async () => {
+            const grid = document.getElementById('blog-grid');
+
+            try {
+                // Fetch from Supabase
+                const { data: posts, error } = await window.supabaseClient
+                    .from('posts')
+                    .select('*')
+                    .order('created_at', { ascending: false });
+
+                if (error) throw error;
+
+                if (!posts || posts.length === 0) {
+                    grid.innerHTML = '<p style="text-align:center; grid-column: 1/-1;">No posts yet. Visit <a href="/blog/admin">/blog/admin</a> to add one.</p>';
+                } else {
+                    renderPosts(posts);
+                }
+            } catch (err) {
+                console.error("Error loading posts:", err);
+                grid.innerHTML = '<p style="text-align:center; grid-column: 1/-1;">Error loading posts. Please check your Supabase configuration.</p>';
+            }
+        });
+
+        function renderPosts(posts) {
+            const grid = document.getElementById('blog-grid');
+            grid.innerHTML = posts.map(post => `
+                <a href="/blog/post.html?id=${post.id}" class="blog-card">
+                    <img src="${post.image_url || '../Public/zeplit.png'}" alt="${post.title}" class="blog-thumb">
+                    <div class="blog-content">
+                        <span class="blog-date">${new Date(post.created_at).toLocaleDateString()}</span>
+                        <h3 class="blog-title">${post.title}</h3>
+                        <p class="blog-excerpt">${post.excerpt}</p>
+                    </div>
+                </a>
+            `).join('');
+        }
+    </script>
+</body>
+
+</html>
