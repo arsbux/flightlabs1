@@ -225,7 +225,7 @@
 
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-    <script src="../supabase-config.js"></script>
+    <script src="/blog/supabase-config.js"></script>
     <script>
         // --- 1. Initialize TinyMCE ---
         tinymce.init({
@@ -233,8 +233,8 @@
             height: 500,
             plugins: 'image link lists table code preview help wordcount',
             toolbar: 'undo redo | blocks | bold italic backcolor | ' +
-                     'alignleft aligncenter alignright alignjustify | ' +
-                     'bullist numlist outdent indent | link image table | removeformat | help',
+                'alignleft aligncenter alignright alignjustify | ' +
+                'bullist numlist outdent indent | link image table | removeformat | help',
             branding: false,
             promotion: false,
             // Custom Image Upload Handler for Supabase
@@ -253,8 +253,8 @@
         // --- 2. UPLOAD HELPER FUNCTION ---
         async function uploadToSupabase(file, path) {
             // Ensure bucket exists or use 'images'
-            const BUCKET_NAME = 'images'; 
-            
+            const BUCKET_NAME = 'images';
+
             const { data, error } = await window.supabaseClient.storage
                 .from(BUCKET_NAME)
                 .upload(path, file, {
@@ -305,7 +305,7 @@
                     const title = document.getElementById('title').value;
                     const excerpt = document.getElementById('excerpt').value;
                     // Get Content from TinyMCE
-                    const body = tinymce.get('body').getContent(); 
+                    const body = tinymce.get('body').getContent();
 
                     // Handle Featured Image Upload
                     let final_image_url = document.getElementById('imageUrl').value || null; // Fallback
@@ -320,11 +320,11 @@
                     const { data, error } = await window.supabaseClient
                         .from('posts')
                         .insert([
-                            { 
-                                title, 
-                                image_url: final_image_url, 
-                                excerpt, 
-                                body 
+                            {
+                                title,
+                                image_url: final_image_url,
+                                excerpt,
+                                body
                             }
                         ]);
 
@@ -334,7 +334,7 @@
                     const success = document.getElementById('success');
                     success.style.display = 'block';
                     setTimeout(() => success.style.display = 'none', 3000);
-                    
+
                     e.target.reset();
                     preview.style.display = 'none';
                     uploadText.style.display = 'block';
@@ -382,7 +382,7 @@
         }
 
         async function deletePost(id) {
-            if(confirm('Delete this post permanently?')) {
+            if (confirm('Delete this post permanently?')) {
                 try {
                     const { error } = await window.supabaseClient
                         .from('posts')
